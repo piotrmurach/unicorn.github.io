@@ -1,0 +1,141 @@
+---
+layout: default
+title: Unicorn • A place for open source creatures
+section: overview
+---
+<section class="intro section">
+  <header>
+    <a href="{{ path }}"><img class="logo" src="assets/{% asset_path unicorn_logo.png %}" alt="unicorn logo" /></a>
+  </header>
+</section>
+
+<section id="features" class="features section">
+  <article class="content">
+  <h2 class='headline'>Features</h2>
+
+  <p>
+    Supports all the API methods. It's build in a modular way, that is, you can either instantiate the whole api wrapper Github.new or use parts of it e.i. Github::Repos.new if working solely with repositories is your main concern.'
+  </p>
+
+  <div class='features-wrapper'>
+    <ul class="column">
+      <li><span>Intuitive GitHub API interface navigation.</span></li>
+      <li><span>Modular design allows for working with parts of API.</span></li>
+      <li><span>Fully customizable including advanced middleware stack construction.</span></li>
+      <li><span>Its comprehensive, you can request all GitHub API resources.</span></li>
+      <li><span>Requests pagination with convenient DSL and automatic option.</span></li>
+      <li><span>Support OAuth2 authorization.</span></li>
+    </ul>
+    <ul class="column">
+      <li><span>Flexible arguments parsing, you can write expressive and natural queries.</span></li>
+      <li><span>Easy error handling split for client and server type errors.</span></li>
+      <li><span>Supports multithreaded environment.</span></li>
+      <li><span>Custom media types specification through 'media' parameter.</span></li>
+      <li><span>Request results caching.</span></li>
+      <li><span>Fully tested with test coverage above 90% with over 1,500 specs and 800 features.</span></li>
+    </ul>
+  </div>
+  </article>
+</section>
+
+<section id="usage" class="usage section">
+  <article class="content">
+  <h2 class="headline">Usage & Installation</h2>
+  <p>
+    Install the gem by issuing
+  </p>
+
+{% highlight ruby %}
+$ gem install github_api
+{% endhighlight %}
+
+  <p> or put it in your Gemfile and run bundle install </p>
+
+{% highlight ruby %}
+gem "github_api"
+{% endhighlight %}
+
+  <p>To start using the gem you can either perform direct call on the Github</p>
+
+{% highlight ruby %}
+Github.repos.list user: 'wycats'
+{% endhighlight %}
+
+  <p>or create a new client instance</p>
+
+{% highlight ruby %}
+github = Github.new
+{% endhighlight %}
+  </article>
+</section>
+
+
+<section id="api" class="api section">
+  <article class="content">
+    <h2 class='headline'>API</h2>
+
+    <p>All method calls form ruby like sentences and allow for intuitive api navigation, for instance</p>
+
+{% highlight ruby %}
+github = Github.new :oauth_token => '...'
+github.users.followers.following 'wycats'  # => returns users that 'wycats' is following
+github.users.followers.following 'wycats' # => returns true if following, otherwise false
+{% endhighlight %}
+  </article>
+</section>
+
+<section id="config" class="config section">
+  <article class="content">
+    <h2 class='headline'>Configuration</h2>
+    <p>At this stage you can also supply various configuration parameters, such as</p>
+{% highlight ruby %}
+  adapter          # http client used for performing requests
+  auto_pagination  # by default false, set to true traverses requests page links
+  oauth_token      # oauth authorization token
+  basic_auth       # login:password string
+  client_id        # oauth client id
+  client_secret    # oauth client secret
+  user             # global user used in requets if none provided
+  repo             # global repository used in requests in none provided
+  org              # global organization used in request if none provided
+  endpoint         # enterprise api endpoint
+  site             # enterprise api web endpoint
+  ssl              # ssl settings
+  per_page         # number of items per page, max 100
+  user_agent       # custom user agent name, by default 'Github API'
+{% endhighlight %}
+
+  </article>
+</section>
+
+
+<section id="auth" class="auth section">
+  <article class="content">
+    <h2 class='headline'>Authorization</h2>
+
+    <p>Alternatively you can use OAuth Authorizations API. For instance, to create access token through GitHub API you required to pass your basic credentials as in the following:</p>
+
+{% highlight ruby %}
+github = Github.new basic_auth: 'login:password'
+github.oauth.create 'scopes' => ['repo']
+{% endhighlight %}
+
+  </article>
+</section>
+
+<section id="cli" class="cli section">
+  <article class="content">
+    <h2 class='headline'>Command Line Interface</h2>
+
+{% highlight ruby %}
+{% endhighlight %}
+
+  </article>
+</section>
+
+<section id="social" class="social section">
+  <article class="content">
+    <h2 class='headline'>Connect</h2>
+
+  </article>
+</section>

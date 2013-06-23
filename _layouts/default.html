@@ -1,0 +1,15 @@
+{% include top.html %}
+
+<body>
+
+  <div class="container">
+    {% include header.html %}
+
+    {{ content }}
+
+    {% include footer.html %}
+  </div> <!-- /container -->
+
+<script type="text/javascript" src="{{ prefix }}assets/{% asset_path app.js %}"></script>
+</body>
+</html>
