@@ -1,0 +1,11 @@
+source 'https://rubygems.org'
+
+gem 'jekyll'
+gem 'jekyll-assets'
+gem 'coffee-script'
+gem 'sass'
+gem 'uglifier'
+gem 'tty'
+gem 'rake'
+gem 'bourbon'
+gem 'static_deploy'
