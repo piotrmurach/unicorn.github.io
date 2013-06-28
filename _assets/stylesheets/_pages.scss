@@ -70,6 +70,7 @@ h1, h2, h3 {
 
     .main-nav {
       @include column(6, 10);
+      @include pull(1);
       float: right;
       text-align: right;
 
@@ -87,7 +88,6 @@ h1, h2, h3 {
       margin-top: -1em;
     }
   }
-
 
   .logo {
     @include column(4, 10);
@@ -107,10 +107,12 @@ h1, h2, h3 {
   .section {
     @include row(10);
     color: white;
-    padding: 1em 0 2em 0;
+    padding: 1em 0 4em 0;
+    line-height: 1.6em;
 
     .headline {
       text-align: center;
+      margin: 0 0 1em 0;
     }
 
     .content {
@@ -134,6 +136,56 @@ h1, h2, h3 {
       }
     }
 
+    .social-icons {
+      text-align: center;
+      margin: 3em 0;
+
+      li {
+        margin: 0 10%;
+      }
+
+      .box {
+        position: relative;
+        @include inline-block;
+        background-color: adjust-color($social-section-color, $lightness: -5%);
+        padding: 1.4em;
+        border-radius: 16px;
+
+        &:hover {
+          background-color: adjust-color($social-section-color, $lightness: -10%);
+        }
+
+        .icon {
+          display: block;
+          width: 64px;
+          height: 64px;
+
+          &.twitter {
+            background: image-url('icons/twitter_64.png') no-repeat;
+          }
+
+          &.github {
+            background: image-url('icons/github_64.png') no-repeat;
+          }
+
+          &.email {
+            background: image-url('icons/email_64.png') no-repeat;
+          }
+        }
+
+        .text {
+          position: absolute;
+          left: -25%;
+          color: white;
+          bottom: -50px;
+          font-size: .8em;
+          width: 150%;
+          text-align: center;
+          text-transform: uppercase;
+        }
+      }
+    }
+
     &.intro {
       padding: 0;
     }
@@ -147,7 +199,7 @@ h1, h2, h3 {
     }
 
     &.api {
-      background-color: $api-section-color;
+      background-color: adjust-color($api-section-color, $lightness: -8%);
     }
 
     &.config {
