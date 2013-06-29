@@ -14,7 +14,7 @@ section: overview
   <h2 class='headline'>Features</h2>
 
   <p>
-    Supports all the API methods. It's build in a modular way, that is, you can either instantiate the whole api wrapper Github.new or use parts of it e.i. Github::Repos.new if working solely with repositories is your main concern.'
+    Supports all the API methods. It's build in a modular way, that is, you can either instantiate the whole api wrapper <span class="keyword">Github.new</span> or use parts of it e.i. <span class="keyword">Github::Repos.new</span> if working solely with repositories is your main concern.'
   </p>
 
   <div class='features-wrapper'>
@@ -105,6 +105,24 @@ github.users.followers.following 'wycats' # => returns true if following, otherw
   user_agent       # custom user agent name, by default 'Github API'
 {% endhighlight %}
 
+<p>which are used throughout the API. These can be passed directly as hash options:</p>
+
+{% highlight ruby %}
+github = Github.new oauth_token: 'token'
+{% endhighlight %}
+
+<p>Alternatively, you can configure the Github settings by passing a block, for instance, with custom enterprise endpoint and website like</p>
+
+{% highlight ruby %}
+github = Github.new do |config|
+  config.endpoint    = 'https://github.company.com/api/v3'
+  config.site        = 'https://github.company.com'
+  config.oauth_token = 'token'
+  config.adapter     = :net_http
+  config.ssl         = {:verify => false}
+end
+{% endhighlight %}
+
   </article>
 </section>
 
@@ -120,6 +138,8 @@ github = Github.new basic_auth: 'login:password'
 github.oauth.create 'scopes' => ['repo']
 {% endhighlight %}
 
+<p>You can add more than one scope from the <span class="keyword">user</span>, <span class="keyword">public_repo</span>, <span class="keyword">repo</span>, <span class="keyword">gist</span> or leave the scopes parameter out, in which case, the default read-only access will be assumed(includes public user profile info, public repo info, and gists).</p>
+
   </article>
 </section>
 
@@ -127,7 +147,7 @@ github.oauth.create 'scopes' => ['repo']
   <article class="content">
     <h2 class='headline'>Command Line Interface</h2>
 
-    <p>If you preference is to have CLI-based access to GitHub API v3, you can use a ruby gem called <span class="keyword">github_cli</span>.</p>
+    <p>If your preference is to have CLI-based access to GitHub API v3, you can use a ruby gem called <span class="keyword">github_cli</span>.</p>
 
     <p>To install it do</p>
 

@@ -186,6 +186,7 @@ h1, h2, h3 {
 
     .features-wrapper {
       @include row(10);
+      margin-top: 2em;
 
       .column {
         @include column(5, 10);
@@ -256,6 +257,10 @@ h1, h2, h3 {
 
     &.features {
       background-color: $main-color;
+
+      .keyword {
+        background-color: adjust-color($main-color, $lightness: -10%);
+      }
     }
 
     &.usage {
@@ -272,6 +277,10 @@ h1, h2, h3 {
 
     &.auth {
       background-color: $auth-section-color;
+
+      .keyword {
+        background-color: adjust-color($auth-section-color, $lightness: -10%);
+      }
     }
 
     &.cli {
