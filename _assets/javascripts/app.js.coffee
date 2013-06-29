@@ -12,5 +12,5 @@ $("#nav-collapse").on 'click', (event) ->
   event.preventDefault()
 
 $(".content h2").on 'click', (event) ->
-  $.scrollTo('#main-nav', 500)
+  $.scrollTo('.container', 500)
   event.preventDefault()
