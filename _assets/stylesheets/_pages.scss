@@ -279,6 +279,23 @@ h1, h2, h3 {
   }
 }
 
+.nav-arrow {
+  display: none;
+  position: absolute;
+  right: 2%;
+  background-color: adjust-color($font-color, $lightness: 70%);
+  border-radius: 16px;
+  padding: 0.5em;
+
+  .arrow {
+    display: block;
+    width: 64px;
+    height: 64px;
+    background: image-url("icons/arrow_up_64.png") no-repeat;
+  }
+}
+
+
 
 @media all and (max-width: $tablet-size) {
   body {
