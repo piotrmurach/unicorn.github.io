@@ -149,6 +149,7 @@ h1, h2, h3 {
     }
   }
 
+
   .section {
     @include row(10);
     color: white;
@@ -158,6 +159,24 @@ h1, h2, h3 {
     .headline {
       text-align: center;
       margin: 0 0 1em 0;
+      margin-top: 1em;
+    }
+
+    .more {
+      margin-top: 2em;
+      text-align: center;
+
+      .learn {
+        @include inline-block;
+        padding: 0.5em 0.7em;
+        font-size: 0.9em;
+        border-radius: 10px;
+      }
+    }
+
+    .keyword {
+      padding: 0.2em 0.3em;
+      border-radius: 8px;
     }
 
     .content {
@@ -257,6 +276,20 @@ h1, h2, h3 {
 
     &.cli {
       background-color: $cli-section-color;
+
+      .learn {
+        color: adjust-color($cli-section-color, $lightness: 50%);
+        background-color: adjust-color($cli-section-color, $lightness: -10%);
+
+        &:hover {
+          color: white;
+          background-color: adjust-color($cli-section-color, $lightness: -15%);
+        }
+      }
+
+      .keyword {
+        background-color: adjust-color($cli-section-color, $lightness: -10%);
+      }
     }
 
     &.social {

@@ -127,8 +127,64 @@ github.oauth.create 'scopes' => ['repo']
   <article class="content">
     <h2 class='headline'>Command Line Interface</h2>
 
+    <p>If you preference is to have CLI-based access to GitHub API v3, you can use a ruby gem called <span class="keyword">github_cli</span>.</p>
+
+    <p>To install it do</p>
+
 {% highlight ruby %}
+$ gem install github_cli
 {% endhighlight %}
+
+    <p>To run it execute command</p>
+
+{% highlight ruby %}
+$ gcli
+{% endhighlight %}
+
+  <p>The first step is to create a configuration file, either global in home directory or local inside the project:</p>
+
+{% highlight ruby %}
+$ gcli init [--local] [filename]
+{% endhighlight %}
+
+  <p>Without any options this command will setup a <span class="keyword">.githubrc</span> configuration file in your home/project directory with all the global settings. By passing <span class="keyword">--local</span> option the config file will be created locally in the execution directory. Further, by default <span class="keyword">.githubrc</span> name is used which can be changed by passing the <span class="keyword">filename</span>.</p>
+
+  <p>Main configuration options are:</p>
+
+{% highlight ruby %}
+user.token            # Authentication token
+user.login            # User login
+user.password         # User password
+user.name             # Default user name
+user.repo             # Default repo name
+user.org              # Default organization name
+core.editor           # Editor to be opened
+core.endpoint         # The api endpoint, by deafult https://api.github.com
+core.site             # The web endpoint, by default https://github.com
+core.pager            # Pager to be used, by default less
+core.format           # Output formating
+core.quiet            # Surpass output to show only response status
+core.ssl              # SSL settings
+core.auto_pagination  # Switch on default results pagination, default false
+{% endhighlight %}
+
+<p>Moreover, <span class="keyword">gcli config</span> command allows you to set/get any configuration option such as output format, editor or oauth token.</p>
+
+<p>For instance, to check value for your authentication token do</p>
+
+{% highlight ruby %}
+$ gcli config [--local] user.token
+{% endhighlight %}
+
+<p>and to set the value do</p>
+
+{% highlight ruby %}
+$ gcli config [--local] user.token lh23l4kj234....
+{% endhighlight %}
+
+    <aside class="more">
+      <a class="learn" href="https://github.com/peter-murach/github_cli">Learn more</a>
+    </aside>
 
   </article>
 </section>
