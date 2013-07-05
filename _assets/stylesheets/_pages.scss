@@ -102,6 +102,7 @@ h1, h2, h3 {
       text-transform: none;
       line-height: 1.4em;
       font-size: 1.4em;
+      margin-top: 0.4em;
 
       .primary {
         @include inline-block;
@@ -121,7 +122,7 @@ h1, h2, h3 {
       float: right;
       @include inline-block;
       @include transition(background-color .5s ease);
-      padding: 1.2em 2em;
+      padding: 1.1em 2em;
       background-color: adjust-color($main-dark-color, $lightness: 5%);
       border-radius: 12px;
       color: white;
@@ -130,14 +131,27 @@ h1, h2, h3 {
       &:hover {
         background-color: adjust-color($main-dark-color, $lightness: -5%);
       }
+
+      .github-icon {
+        float: left;
+        width: 32px;
+        height: 32px;
+        background: image-url('icons/github_32_circle.png') no-repeat;
+        padding-right: 5px;
+      }
+
+      .text {
+        float: left;
+        margin-top: 3px;
+      }
+
     }
 
   }
 
   .logo {
-    @include column(4, 10);
-    @include push(3);
-    margin-top: 3em;
+    @include column(5, 10);
+    @include push(2.5);
   }
 
   .highlight {
@@ -149,7 +163,6 @@ h1, h2, h3 {
     }
   }
 
-
   .section {
     @include row(10);
     color: white;
@@ -158,8 +171,7 @@ h1, h2, h3 {
 
     .headline {
       text-align: center;
-      margin: 0 0 1em 0;
-      margin-top: 1em;
+      margin: 1em 0 1em 0;
     }
 
     .more {
@@ -253,6 +265,7 @@ h1, h2, h3 {
 
     &.intro {
       padding: 0;
+      margin-top: 5em;
     }
 
     &.features {
@@ -343,9 +356,33 @@ h1, h2, h3 {
   body {
     font: 400 100%/1.4 'VarelaRegular';
 
-    .header {
-      .blurb {
-        font-size: 0.5em;
+    .container {
+      .header {
+        .main-nav {
+          li {
+            padding-right: 0.9em;
+          }
+        }
+
+        .blurb {
+          font-size: 1em;
+        }
+
+        .button {
+          font-size: 1em;
+          padding: 0.65em 1em;
+
+          .github-icon {
+            display: none;
+          }
+        }
+      }
+      .section {
+        .social-icons {
+          li {
+            margin: 0 5%;
+          }
+        }
       }
     }
   }
