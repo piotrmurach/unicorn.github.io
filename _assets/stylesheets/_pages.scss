@@ -285,10 +285,28 @@ h1, h2, h3 {
 
     &.api {
       background-color: adjust-color($api-section-color, $lightness: -8%);
+
+      .keyword {
+        background-color: adjust-color($api-section-color, $lightness: -13%);
+      }
+
+      .learn {
+        color: adjust-color($api-section-color, $lightness: 50%);
+        background-color: adjust-color($api-section-color, $lightness: -15%);
+
+        &:hover {
+          color: white;
+          background-color: adjust-color($api-section-color, $lightness: -18%);
+        }
+      }
     }
 
     &.config {
       background-color: $config-section-color;
+
+      .keyword {
+        background-color: adjust-color($config-section-color, $lightness: -10%);
+      }
     }
 
     &.auth {
@@ -401,6 +419,14 @@ h1, h2, h3 {
         .button {
           padding: 0.2em 0.5em;
           font-size: 0.8em;
+        }
+      }
+      .section {
+        .social-icons {
+          li {
+            display: block;
+            margin: 20% 5%;
+          }
         }
       }
     }

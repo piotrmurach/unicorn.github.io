@@ -14,7 +14,7 @@ section: overview
   <h2 class='headline'>Features</h2>
 
   <p>
-    Supports all the API methods. It's build in a modular way, that is, you can either instantiate the whole api wrapper <span class="keyword">Github.new</span> or use parts of it e.i. <span class="keyword">Github::Repos.new</span> if working solely with repositories is your main concern.'
+    Supports all the API methods. It's build in a modular way, that is, you can either instantiate the whole api wrapper <span class="keyword">Github.new</span> or use parts of it e.i. <span class="keyword">Github::Repos.new</span> if working solely with repositories is your main concern.
   </p>
 
   <div class='features-wrapper'>
@@ -30,9 +30,9 @@ section: overview
       <li><span>Flexible arguments parsing, you can write expressive and natural queries.</span></li>
       <li><span>Easy error handling split for client and server type errors.</span></li>
       <li><span>Supports multithreaded environment.</span></li>
-      <li><span>Custom media types specification through 'media' parameter.</span></li>
+      <li><span>Custom media types specification through &lsquo;media&rsquo; parameter.</span></li>
       <li><span>Request results caching.</span></li>
-      <li><span>Fully tested with test coverage above 90% with over 1,500 specs and 800 features.</span></li>
+      <li><span>Fully tested with test coverage above 90% with over 1,600 specs and 900 features.</span></li>
     </ul>
   </div>
   </article>
@@ -69,18 +69,52 @@ github = Github.new
   </article>
 </section>
 
-
 <section id="api" class="api section">
   <article class="content">
-    <h2 class='headline'>API</h2>
+    <h2 class='headline'>Application Interface</h2>
+
+    <p>This library closely mirrors the GitHub Api hierarchy. For example to interact with GitHub Repositories API, issue the following calls that correspond directly to the GitHub API hierarchy</p>
+
+{% highlight ruby %}
+github.repos.commits.all  'user-name', 'repo-name'
+github.repos.hooks.create 'user-name', 'repo-name', name: "web", active: true
+github.repos.keys.get     'user-name', 'repo-name'
+{% endhighlight %}
+
+    <p>The code base is modular and allows for you to work specifically with a given part of GitHub API e.g. blobs</p>
+
+{% highlight ruby %}
+blobs = Github::GitData::Blobs.new
+blobs.create 'peter-murach', 'github', content: 'Blob content'
+{% endhighlight %}
+
+    <p>The response is of type <span class="keyword">Github::ResponseWrapper</span> and allows to traverse all the json response attributes like method calls e.i.</p>
+
+{% highlight ruby %}
+repos = Github::Repos.new :user => 'peter-murach', :repo => 'github'
+repos.branches do |branch|
+  puts branch.name
+end
+{% endhighlight %}
 
     <p>All method calls form ruby like sentences and allow for intuitive api navigation, for instance</p>
 
 {% highlight ruby %}
 github = Github.new :oauth_token => '...'
 github.users.followers.following 'wycats'  # => returns users that 'wycats' is following
-github.users.followers.following 'wycats' # => returns true if following, otherwise false
+github.users.followers.following? 'wycats' # => returns true if following, otherwise false
 {% endhighlight %}
+
+    <p>The library allows for flexible arguments parsing. Therefore arguments can be passed during instance creation</p>
+
+{% highlight ruby %}
+issues = Github::Issues.new user: 'peter-murach', repo: 'github'
+issues.milestones.list state: 'open'
+{% endhighlight %}
+
+    <aside class="more">
+      <a class="learn" href="https://github.com/peter-murach/github#arguments--parameters">Learn more</a>
+    </aside>
   </article>
 </section>
 
@@ -105,7 +139,7 @@ github.users.followers.following 'wycats' # => returns true if following, otherw
   user_agent       # custom user agent name, by default 'Github API'
 {% endhighlight %}
 
-<p>which are used throughout the API. These can be passed directly as hash options:</p>
+    <p>which are used throughout the API. These can be passed directly as hash options:</p>
 
 {% highlight ruby %}
 github = Github.new oauth_token: 'token'
@@ -123,6 +157,14 @@ github = Github.new do |config|
 end
 {% endhighlight %}
 
+<p>The <span class="keyword">github_api</span> gem will use the default middleware stack which is exposed by calling <span class="keyword">stack</span> on client instance. However, this stack can be freely modified with methods such as <span class="keyword">insert</span>, <span class="keyword">insert_after</span>, <span class="keyword">delete</span> and <span class="keyword">swap</span>. For instance to add your <span class="keyword">CustomMiddleware</span> do</p>
+
+{% highlight ruby %}
+github = Github.new do |config|
+  config.stack.insert_after Github::Response::Helpers, CustomMiddleware
+end
+{% endhighlight %}
+
   </article>
 </section>
 
@@ -130,6 +172,18 @@ end
 <section id="auth" class="auth section">
   <article class="content">
     <h2 class='headline'>Authorization</h2>
+
+    <p>You can authenticate either using <span class="keyword">OAuth</span> authentication convenience methods(see section OAuth) or through basic authentication by passing your login and password credentials<p>
+
+{% highlight ruby %}
+github = Github.new login:'peter-murach', password:'...'
+{% endhighlight %}
+
+  <p>or use convenience method</p>
+
+{% highlight ruby %}
+github = Github.new basic_auth: 'login:password'
+{% endhighlight %}
 
     <p>Alternatively you can use OAuth Authorizations API. For instance, to create access token through GitHub API you required to pass your basic credentials as in the following:</p>
 
@@ -227,7 +281,7 @@ $ gcli config [--local] user.token lh23l4kj234....
         </a>
       </li>
       <li>
-        <a href="https://github.com/peter-murach/github" class="box">
+        <a href="mailto:me@piotrmurach.com" class="box">
           <span class="icon email"></span>
           <span class="text">Send an email</span>
         </a>
