@@ -1,7 +1,8 @@
 body {
-  font: 400 112.5%/1.4 'VarelaRegular';
+  font: 400 112.5%/1.4 'LatoLight';
   color: $font-color;
   display: block;
+  font-weight: normal;
 }
 
 a {
@@ -9,6 +10,7 @@ a {
   color: $main-color;
   @include transition(color .5s ease);
 }
+
 a:visited {
   color: $main-color;
 }
@@ -172,6 +174,7 @@ h1, h2, h3 {
     .headline {
       text-align: center;
       margin: 1em 0 1em 0;
+      font-size: 2em;
     }
 
     .more {
@@ -265,7 +268,7 @@ h1, h2, h3 {
 
     &.intro {
       padding: 0;
-      margin-top: 5em;
+      margin-top: 3em;
     }
 
     &.features {
@@ -350,11 +353,9 @@ h1, h2, h3 {
   }
 }
 
-
-
 @media all and (max-width: $tablet-size) {
   body {
-    font: 400 100%/1.4 'VarelaRegular';
+    font: 400 100%/1.4 'LatoLight';
 
     .container {
       .header {
@@ -390,7 +391,7 @@ h1, h2, h3 {
 
 @media all and (max-width: $mobile-size) {
   body {
-    font: 400 90%/1.4 'VarelaRegular';
+    font: 400 90%/1.4 'LatoLight';
 
     .container {
       .header {
