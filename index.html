@@ -85,13 +85,13 @@ github.repos.keys.get     'user-name', 'repo-name'
 
 {% highlight ruby %}
 blobs = Github::GitData::Blobs.new
-blobs.create 'peter-murach', 'github', content: 'Blob content'
+blobs.create 'piotrmurach', 'github', content: 'Blob content'
 {% endhighlight %}
 
     <p>The response is of type <span class="keyword">Github::ResponseWrapper</span> and allows to traverse all the json response attributes like method calls e.i.</p>
 
 {% highlight ruby %}
-repos = Github::Repos.new :user => 'peter-murach', :repo => 'github'
+repos = Github::Repos.new :user => 'piotrmurach', :repo => 'github'
 repos.branches do |branch|
   puts branch.name
 end
@@ -108,12 +108,12 @@ github.users.followers.following? 'wycats' # => returns true if following, other
     <p>The library allows for flexible arguments parsing. Therefore arguments can be passed during instance creation</p>
 
 {% highlight ruby %}
-issues = Github::Issues.new user: 'peter-murach', repo: 'github'
+issues = Github::Issues.new user: 'piotrmurach', repo: 'github'
 issues.milestones.list state: 'open'
 {% endhighlight %}
 
     <aside class="more">
-      <a class="learn" href="https://github.com/peter-murach/github#arguments--parameters">Learn more</a>
+      <a class="learn" href="https://github.com/piotrmurach/github#arguments--parameters">Learn more</a>
     </aside>
   </article>
 </section>
@@ -176,7 +176,7 @@ end
     <p>You can authenticate either using <span class="keyword">OAuth</span> authentication convenience methods(see section OAuth) or through basic authentication by passing your login and password credentials<p>
 
 {% highlight ruby %}
-github = Github.new login:'peter-murach', password:'...'
+github = Github.new login:'piotrmurach', password:'...'
 {% endhighlight %}
 
   <p>or use convenience method</p>
@@ -257,7 +257,7 @@ $ gcli config [--local] user.token lh23l4kj234....
 {% endhighlight %}
 
     <aside class="more">
-      <a class="learn" href="https://github.com/peter-murach/github_cli">Learn more</a>
+      <a class="learn" href="https://github.com/piotrmurach/github_cli">Learn more</a>
     </aside>
 
   </article>
@@ -275,7 +275,7 @@ $ gcli config [--local] user.token lh23l4kj234....
         </a>
       </li>
       <li>
-        <a href="https://github.com/peter-murach/github" class="box">
+        <a href="https://github.com/piotrmurach/github" class="box">
           <span class="icon github"></span>
           <span class="text">Watch on github</span>
         </a>
