@@ -2,9 +2,9 @@
   font-family: 'LatoRegular';
   src: url(asset_path('fonts/lato-regular-webfont.eot'));
   src: url(asset_path('fonts/lato-regular-webfont.eot') + '?#iefix') format('embedded-opentype'),
-        url(asset_path('fonts/lato-regular-webfont.woff')) format('woff'),
-        url(asset_path('fonts/lato-regular-webfont.ttf')) format('truetype'),
-        url(asset_path('fonts/lato-regular-webfont.svg') + '#latoregular') format('svg');
+       url(asset_path('fonts/lato-regular-webfont.woff')) format('woff'),
+       url(asset_path('fonts/lato-regular-webfont.ttf')) format('truetype'),
+       url(asset_path('fonts/lato-regular-webfont.svg') + '#latoregular') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -13,9 +13,9 @@
   font-family: 'LatoLight';
   src: url(asset_path('fonts/lato-light-webfont.eot'));
   src: url(asset_path('fonts/lato-light-webfont.eot') + '?#iefix') format('embedded-opentype'),
-        url(asset_path('fonts/lato-light-webfont.woff')) format('woff'),
-        url(asset_path('fonts/lato-light-webfont.ttf')) format('truetype'),
-        url(asset_path('fonts/lato-light-webfont.svg') + '#latolight') format('svg');
+       url(asset_path('fonts/lato-light-webfont.woff')) format('woff'),
+       url(asset_path('fonts/lato-light-webfont.ttf')) format('truetype'),
+       url(asset_path('fonts/lato-light-webfont.svg') + '#latolight') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -24,9 +24,9 @@
   font-family: 'OpenSansLight';
   src: url(asset_path('fonts/OpenSans-Light-webfont.eot'));
   src: url(asset_path('fonts/OpenSans-Light-webfont.eot') + '?#iefix') format('embedded-opentype'),
-        url(asset_path('fonts/OpenSans-Light-webfont.woff')) format('woff'),
-        url(asset_path('fonts/OpenSans-Light-webfont.ttf')) format('truetype'),
-        url(asset_path('fonts/OpenSans-Light-webfont.svg') + '#OpenSansLight') format('svg');
+       url(asset_path('fonts/OpenSans-Light-webfont.woff')) format('woff'),
+       url(asset_path('fonts/OpenSans-Light-webfont.ttf')) format('truetype'),
+       url(asset_path('fonts/OpenSans-Light-webfont.svg') + '#OpenSansLight') format('svg');
   font-weight: normal;
   font-style: normal;
 }

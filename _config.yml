@@ -10,5 +10,6 @@ assets:
     js: uglifier
   cachebust: hard
   prefix: ''
+  digest: true
   gzip: [ text/css, application/javascript ]
 exclude: [components, Rakefile, Gemfile, Gemfile.lock]

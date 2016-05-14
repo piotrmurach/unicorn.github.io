@@ -1,0 +1,16 @@
+.main-nav.hide { display: block; }
+
+.main-nav {
+  @include column(6, 10);
+  @include pull(1);
+  float: right;
+  text-align: right;
+
+  li {
+    padding-right: 2em;
+
+    &.last {
+      padding-right: 0;
+    }
+  }
+}
